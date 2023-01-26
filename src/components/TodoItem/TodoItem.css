@@ -6,8 +6,8 @@
   font-size: 1.6rem;
 
   width: 80%;
+  height: 5rem;
   margin: 0 auto 2rem;
-  padding: 0 1rem;
 
   background-color: rgb(142, 219, 252);
   border-radius: 0.5rem;
@@ -21,7 +21,9 @@
   color: rgba(0, 0, 0, 0.5);
   background-color: rgba(142, 219, 252, 0.5);
 }
-
+.todo_item__text{
+  margin: 0;
+}
 .todo_item_completed .todo_item__text {
   text-decoration: line-through;
 }
@@ -30,7 +32,49 @@
   margin-bottom: 0;
 }
 
-.todo_item__btn {
+.todo_item__icon{
+  padding: 0 .5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.todo_item__delete{
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.todo_item__icon_button{
+  font-family: "JetBrains Mono";
+  font-size: 1.6rem !important;
+}
+
+.todo_item__delete,
+.todo_item__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  transition: all .1s ease-in;
+}
+
+.todo_item__delete_button,
+.todo_item__icon_button{
   font-size: 1.8rem;
-  font-weight: bold;
+  background-color: transparent;
+  border: 0;
+}
+
+.todo_item__delete:hover{
+  background-color: rgb(255,138,128);
+}
+
+.todo_item__icon:hover{
+  background-color: rgb(185,246,202);
+}
+.todo_item_completed .todo_item__icon:hover{
+  background-color: rgb(142, 219, 252);
+}
+
+.todo_item__delete:hover,
+.todo_item__icon:hover,
+.todo_item__delete_button:hover,
+.todo_item__icon_button:hover{
+  cursor: pointer;
 }

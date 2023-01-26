@@ -1,6 +1,6 @@
 import { useState } from "react";
-
 import { getTodoIndexById } from "../components/utils/getTodoIndexById";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 import { AppUI } from "./AppUI.js";
 
 /* const defaultTodos = [
@@ -10,18 +10,10 @@ import { AppUI } from "./AppUI.js";
 ]; */
 
 const VERSION = "TODOS_V1";
-let localTodos;
-
-if (!localStorage.getItem(VERSION)) {
-  localStorage.setItem(VERSION, JSON.stringify([]));
-  localTodos = [];
-} else {
-  const storedTodos = localStorage.getItem(VERSION);
-  localTodos = JSON.parse(storedTodos);
-}
 
 function App() {
-  const [todos, setTodos] = useState(localTodos);
+  const [todos, saveTodos] = useLocalStorage(VERSION, []);
+
   const [searchValue, setSearchValue] = useState("");
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
@@ -36,12 +28,6 @@ function App() {
       todo.text.toLowerCase().includes(searchValue.toLowerCase())
     );
   }
-
-  const saveTodos = (newTodos) => {
-    setTodos(newTodos);
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem(VERSION, stringifiedTodos);
-  };
 
   const toggleTodoState = (id) => {
     const todoIndex = getTodoIndexById(id, todos);

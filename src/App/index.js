@@ -12,7 +12,12 @@ import { AppUI } from "./AppUI.js";
 const VERSION = "TODOS_V1";
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage(VERSION, []);
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage(VERSION, []);
 
   const [searchValue, setSearchValue] = useState("");
 
@@ -59,6 +64,8 @@ function App() {
       onDeleteTodo={onDeleteTodo}
       setSearchValue={setSearchValue}
       searchValue={searchValue}
+      loading={loading}
+      error={error}
     />
   );
 }

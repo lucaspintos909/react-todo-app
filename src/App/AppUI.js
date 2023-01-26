@@ -13,6 +13,8 @@ function AppUI({
   onDeleteTodo,
   setSearchValue,
   searchValue,
+  loading,
+  error,
 }) {
   return (
     <>
@@ -22,15 +24,21 @@ function AppUI({
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
         <TodoList>
-          {searchedTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              text={todo.text}
-              completed={todo.completed}
-              toggleTodoState={() => toggleTodoState(todo.id)}
-              onDeleteTodo={() => onDeleteTodo(todo.id)}
-            />
-          ))}
+          {error && <p>Hubo un error, recargue la página por favor.</p>}
+          {loading && <p>Cargando...</p>}
+          {!loading && !searchedTodos.length && <p>No hay todos</p>}
+
+          {!loading &&
+            !error &&
+            searchedTodos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                text={todo.text}
+                completed={todo.completed}
+                toggleTodoState={() => toggleTodoState(todo.id)}
+                onDeleteTodo={() => onDeleteTodo(todo.id)}
+              />
+            ))}
         </TodoList>
 
         <CreateTodoButton />

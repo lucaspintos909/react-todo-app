@@ -1,0 +1,71 @@
+.todo_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 300px;
+  background-color: var(--background-color);
+  padding: 3.3rem 4rem 2rem;
+  border-radius: var(--border-radius-items);
+}
+
+.todo_form__label {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2.6rem;
+}
+
+.todo_form__textarea {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.8rem;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0rem 0.5rem 5rem rgba(32, 35, 41, 0.25);
+  border: 0.2rem solid #202329;
+  border-radius: var(--border-radius-items);
+  padding: 12px;
+  height: 96px;
+  width: calc(100% - 2.5rem);
+  margin-bottom: 3rem;
+}
+
+.todo_form__textarea::placeholder {
+  color: #a5a5a5;
+  font-weight: 400;
+}
+
+.todo_form__textarea:focus {
+  outline-color: var(--color-info);
+}
+
+.todo_form__buttons_box{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.todo_form__add_button {
+  background-color: var(--color-success);
+}
+
+.todo_form__add_button:hover {
+  background-color: var(--color-success-hover);
+}
+
+.todo_form__add_button:active {
+  background-color: var(--color-success-active);
+}
+
+.todo_form__cancel_button {
+  background-color: transparent;
+}
+
+.todo_form__cancel_button:hover {
+  background-color: var(--color-danger-hover);
+}
+
+.todo_form__cancel_button:active {
+  background-color: var(--color-danger-active);
+}

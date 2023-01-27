@@ -1,15 +1,20 @@
 import React from "react";
 import "./CreateTodoButton.css";
 
-function CreateTodoButton() {
+function CreateTodoButton({ setOpenModal, openModal }) {
   const handleClick = () => {
-    console.log("asd");
+    setOpenModal((oldValue) => !oldValue);
   };
 
   return (
     <div className="create_todo">
-      <button onClick={handleClick} className="create_todo__button">
-        +
+      <button
+        onClick={handleClick}
+        className={`create_todo__button ${
+          openModal && "create_todo__button_close"
+        }`}
+      >
+        {openModal ? "Close modal" : "Add todo"}
       </button>
     </div>
   );

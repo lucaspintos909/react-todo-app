@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
-import { getTodoIndexById } from "../components/utils/getTodoIndexById";
+import { getTodoIndexById } from "../utils/getTodoIndexById";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { generateUUID } from "../utils/generateUUID";
 
 const VERSION = "TODOS_V1";
 
@@ -30,6 +31,20 @@ function TodoProvider(props) {
     );
   }
 
+  const addTodo = (text) => {
+    let newTodos = [...todos];
+
+    const newTodo = {
+      id: generateUUID(),
+      text,
+      completed: false,
+    };
+
+    newTodos.push(newTodo);
+
+    saveTodos(newTodos);
+  };
+
   const toggleTodoState = (id) => {
     const todoIndex = getTodoIndexById(id, todos);
 
@@ -46,7 +61,7 @@ function TodoProvider(props) {
     if (todoIndex !== false) {
       let newTodos = [...todos];
       newTodos.splice(todoIndex, 1);
-      console.log(todoIndex);
+
       saveTodos(newTodos);
     }
   };
@@ -65,6 +80,7 @@ function TodoProvider(props) {
         error,
         openModal,
         setOpenModal,
+        addTodo,
       }}
     >
       {props.children}

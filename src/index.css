@@ -5,6 +5,7 @@ html {
 } /* =10px */
 
 :root {
+  --background-color: #e6ffff;
   --color-success: rgb(185, 246, 202);
   --color-success-hover: rgb(154, 235, 177);
   --color-success-active: rgb(139, 218, 161);
@@ -13,6 +14,8 @@ html {
   --color-danger-active: rgb(253, 97, 83);
   --color-info: rgb(142, 219, 252);
   --color-info-transparent: rgba(142, 219, 252, 0.5);
+  --border-radius-items: 0.5rem;
+  --border-radius-buttons: 1rem;
 }
 
 body {
@@ -36,4 +39,21 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.text-info {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.button {
+  display: block;
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius-buttons);
+  border: 0;
+  transition: all 0.15s ease-in-out;
+}
+
+.button:hover {
+  cursor: pointer;
 }

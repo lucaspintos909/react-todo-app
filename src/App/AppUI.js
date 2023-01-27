@@ -7,6 +7,8 @@ import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { TodoContext } from "../context/TodoContext.js";
+import { NoTodosInfo } from "./NoTodosInfo.js";
+import { TaskListContentLoader } from "./TaskListContentLoader.js";
 
 function AppUI() {
   const {
@@ -31,10 +33,8 @@ function AppUI() {
             Hubo un error, recargue la página por favor.
           </p>
         )}
-        {loading && <p className="text-info">Cargando...</p>}
-        {!loading && !searchedTodos.length && (
-          <p className="text-info">No hay todos</p>
-        )}
+        {loading && <TaskListContentLoader />}
+        {!loading && !searchedTodos.length && <NoTodosInfo />}
 
         {!loading &&
           !error &&
@@ -61,3 +61,4 @@ function AppUI() {
 }
 
 export { AppUI };
+

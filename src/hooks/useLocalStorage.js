@@ -20,7 +20,7 @@ export function useLocalStorage(itemName, initialValue) {
 
         setItem(parsedItem);
         setLoading(false);
-      }, 500);
+      }, 1000);
     } catch (error) {
       setError(true);
     }

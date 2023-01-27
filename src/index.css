@@ -26,7 +26,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  background-color: #e6ffff;
+  background-color: var(--background-color);
 }
 
 #root {
@@ -55,10 +55,25 @@ code {
   transition: all 0.15s ease-in-out;
 }
 
-.small_button{
+.small_button {
   padding: 1rem 1.5rem;
+}
+
+.mini_button {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-success);
+}
+
+.mini_button:hover {
+  cursor: default !important;
 }
 
 .button:hover {
   cursor: pointer;
+}
+
+.content_loader{
+  text-align: center;
 }

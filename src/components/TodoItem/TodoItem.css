@@ -3,12 +3,11 @@
   justify-content: space-between;
   align-items: center;
 
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 
   width: 80%;
   height: 5rem;
   margin: 0 auto 2rem;
-
   background-color: var(--color-info);
   border-radius: var(--border-radius-items);
 
@@ -43,13 +42,16 @@
 .todo_item__icon_button{
   font-family: "JetBrains Mono";
   font-size: 1.6rem !important;
+  width: 6rem;
+  min-height: 100%;
 }
 
 .todo_item__delete,
 .todo_item__icon {
-  display: flex;
+  display: block;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
   height: 100%;
   transition: all .1s ease-in;
 }
@@ -59,6 +61,7 @@
   font-size: 1.8rem;
   background-color: transparent;
   border: 0;
+  height: 100%;
 }
 
 .todo_item__delete:hover{

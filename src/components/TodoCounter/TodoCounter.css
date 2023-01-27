@@ -2,5 +2,7 @@
   font-family: "VT323", monospace;
   font-size: 4rem;
   text-align: center;
-  margin: 5rem 0;
+  margin-bottom: 5rem;
+  margin-top: 0;
+  padding-top: 2rem;
 }

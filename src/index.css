@@ -47,11 +47,16 @@ code {
 }
 
 .button {
+  font-family: "JetBrains Mono", monospace;
   display: block;
   padding: 1.5rem 2rem;
   border-radius: var(--border-radius-buttons);
   border: 0;
   transition: all 0.15s ease-in-out;
+}
+
+.small_button{
+  padding: 1rem 1.5rem;
 }
 
 .button:hover {

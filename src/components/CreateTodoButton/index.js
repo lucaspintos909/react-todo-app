@@ -14,7 +14,7 @@ function CreateTodoButton({ setOpenModal, openModal }) {
           openModal && "create_todo__button_close"
         }`}
       >
-        {openModal ? "Close modal" : "Add todo"}
+        {openModal ? "Cerrar modal" : "Agregar tarea"}
       </button>
     </div>
   );

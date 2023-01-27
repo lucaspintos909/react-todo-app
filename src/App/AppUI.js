@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { CreateTodoButton } from "../components/CreateTodoButton/index.js";
+import { Modal } from "../components/Modal/index.js";
 import { TodoCounter } from "../components/TodoCounter/index.js";
+import { TodoForm } from "../components/TodoForm/index.js";
 import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { TodoContext } from "../context/TodoContext.js";
-import { Modal } from "../components/Modal/index.js";
 
 function AppUI() {
   const {
@@ -25,9 +26,15 @@ function AppUI() {
       <TodoSearch />
 
       <TodoList>
-        {error && <p>Hubo un error, recargue la página por favor.</p>}
-        {loading && <p>Cargando...</p>}
-        {!loading && !searchedTodos.length && <p>No hay todos</p>}
+        {error && (
+          <p className="text-info">
+            Hubo un error, recargue la página por favor.
+          </p>
+        )}
+        {loading && <p className="text-info">Cargando...</p>}
+        {!loading && !searchedTodos.length && (
+          <p className="text-info">No hay todos</p>
+        )}
 
         {!loading &&
           !error &&
@@ -42,7 +49,11 @@ function AppUI() {
           ))}
       </TodoList>
 
-      {!!openModal && <Modal>Modal</Modal>}
+      {!!openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
 
       <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
     </>

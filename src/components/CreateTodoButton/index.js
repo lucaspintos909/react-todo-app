@@ -10,7 +10,7 @@ function CreateTodoButton({ setOpenModal, openModal }) {
     <div className="create_todo">
       <button
         onClick={handleClick}
-        className={`create_todo__button ${
+        className={`button create_todo__button ${
           openModal && "create_todo__button_close"
         }`}
       >

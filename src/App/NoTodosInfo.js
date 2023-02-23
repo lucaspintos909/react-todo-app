@@ -12,4 +12,13 @@ function NoTodosInfo() {
   );
 }
 
-export { NoTodosInfo };
+function TodoNotFound() {
+  return (
+    <>
+      <p className="text-info">No hay tareas con el texto ingresado!</p>
+    </>
+  );
+}
+
+
+export { NoTodosInfo, TodoNotFound };

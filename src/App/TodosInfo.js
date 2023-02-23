@@ -20,5 +20,8 @@ function TodoNotFound() {
   );
 }
 
+function TodosError() {
+  <p className="text-info">Hubo un error, recargue la página por favor.</p>;
+}
 
-export { EmptyTodos, TodoNotFound };
+export { EmptyTodos, TodoNotFound, TodosError };

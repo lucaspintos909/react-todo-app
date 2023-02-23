@@ -7,8 +7,8 @@ import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { useTodos } from "../hooks/useTodos.js";
-import { EmptyTodos, TodoNotFound } from "./TodosInfo.js";
-import { TaskListContentLoader } from "./TaskListContentLoader.js";
+import { TodosContentLoader } from "./T./TodosContentLoader.js";
+import { EmptyTodos, TodoNotFound, TodosError } from "./TodosInfo.js";
 
 /* const defaultTodos = [
   { id: 1, text: "Arreglar errores HDG", completed: false },
@@ -39,13 +39,14 @@ function App() {
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
 
+      <TodoList
+        onError={() => <TodosError />}
+        onLoading={() => <TodosContentLoader />}
+      />
+
       <TodoList>
-        {error && (
-          <p className="text-info">
-            Hubo un error, recargue la página por favor.
-          </p>
-        )}
-        {loading && <TaskListContentLoader />}
+        {error && <TodosError />}
+        {loading && <TodosContentLoader />}
         {!loading && !searchedTodos.length && !searchValue.length && (
           <EmptyTodos />
         )}

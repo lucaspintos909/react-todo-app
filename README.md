@@ -1,11 +1,11 @@
 # Todo's App
 
-<h3 style="text-align: center;">Link: <a href="https://todos.lucaspintos.link/" target="__blank">todos.lucaspintos.link</a></h3>
+<h3 align="center">Link: <a href="https://todos.lucaspintos.link/" target="__blank">todos.lucaspintos.link</a></h3>
 
 <img src="./images/screenshot.png" 
         alt="Screenshot" 
         width="60%"
-        style="display: block; margin: 0 auto" />
+        align="center" />
 
 ## Available Scripts
 

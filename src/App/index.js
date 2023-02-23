@@ -7,7 +7,7 @@ import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { useTodos } from "../hooks/useTodos.js";
-import { TodosContentLoader } from "./T./TodosContentLoader.js";
+import { TodosContentLoader } from "./TodosContentLoader.js";
 import { EmptyTodos, TodoNotFound, TodosError } from "./TodosInfo.js";
 
 /* const defaultTodos = [
@@ -40,32 +40,24 @@ function App() {
       </TodoHeader>
 
       <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        searchValue={searchValue}
         onError={() => <TodosError />}
+        onEmpty={() => <EmptyTodos />}
+        onTodoNotFound={() => <TodoNotFound />}
         onLoading={() => <TodosContentLoader />}
+        render={(todo) => (
+          <TodoItem
+            key={todo.id}
+            text={todo.text}
+            completed={todo.completed}
+            toggleTodoState={() => toggleTodoState(todo.id)}
+            onDeleteTodo={() => onDeleteTodo(todo.id)}
+          />
+        )}
       />
-
-      <TodoList>
-        {error && <TodosError />}
-        {loading && <TodosContentLoader />}
-        {!loading && !searchedTodos.length && !searchValue.length && (
-          <EmptyTodos />
-        )}
-        {!loading && !searchedTodos.length && !!searchValue.length && (
-          <TodoNotFound />
-        )}
-
-        {!loading &&
-          !error &&
-          searchedTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              text={todo.text}
-              completed={todo.completed}
-              toggleTodoState={() => toggleTodoState(todo.id)}
-              onDeleteTodo={() => onDeleteTodo(todo.id)}
-            />
-          ))}
-      </TodoList>
 
       {!!openModal && (
         <Modal>

@@ -2,10 +2,12 @@
 
 <h3 align="center">Link: <a href="https://todos.lucaspintos.link/" target="__blank">todos.lucaspintos.link</a></h3>
 
-<img src="./images/screenshot.png" 
-        alt="Screenshot" 
-        width="60%"
-        align="center" />
+<p align="center">
+  <img src="./images/screenshot.png" 
+      alt="Screenshot" 
+      width="60%"
+  />
+</p>
 
 ## Available Scripts
 

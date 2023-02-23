@@ -6,7 +6,7 @@ html {
 
 :root {
   --background-color: #e6ffff;
-  --color-success: rgb(185, 246, 202);
+  --color-success: rgb(169, 250, 192);
   --color-success-hover: rgb(154, 235, 177);
   --color-success-active: rgb(139, 218, 161);
   --color-danger: rgb(255, 138, 128);

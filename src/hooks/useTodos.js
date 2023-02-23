@@ -1,13 +1,11 @@
-import { createContext, useState } from "react";
+import { useState } from "react";
 import { getTodoIndexById } from "../utils/getTodoIndexById";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage";
 import { generateUUID } from "../utils/generateUUID";
 
 const VERSION = "TODOS_V1";
 
-const TodoContext = createContext();
-
-function TodoProvider(props) {
+function useTodos() {
   const {
     item: todos,
     saveItem: saveTodos,
@@ -66,26 +64,20 @@ function TodoProvider(props) {
     }
   };
 
-  return (
-    <TodoContext.Provider
-      value={{
-        completedTodos,
-        totalTodos,
-        searchedTodos,
-        toggleTodoState,
-        onDeleteTodo,
-        setSearchValue,
-        searchValue,
-        loading,
-        error,
-        openModal,
-        setOpenModal,
-        addTodo,
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+  return {
+    completedTodos,
+    totalTodos,
+    searchedTodos,
+    toggleTodoState,
+    onDeleteTodo,
+    setSearchValue,
+    searchValue,
+    loading,
+    error,
+    openModal,
+    setOpenModal,
+    addTodo,
+  };
 }
 
-export { TodoContext, TodoProvider };
+export { useTodos };

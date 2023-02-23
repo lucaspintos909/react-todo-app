@@ -7,8 +7,9 @@ import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { TodoContext } from "../context/TodoContext.js";
-import { NoTodosInfo } from "./NoTodosInfo.js";
+import { NoTodosInfo, TodoNotFound } from "./NoTodosInfo.js";
 import { TaskListContentLoader } from "./TaskListContentLoader.js";
+import { TodoHeader } from "../components/TodoHeader/index.js";
 
 function AppUI() {
   const {
@@ -19,13 +20,18 @@ function AppUI() {
     onDeleteTodo,
     openModal,
     setOpenModal,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
   } = useContext(TodoContext);
 
   return (
     <>
-      <TodoCounter />
-
-      <TodoSearch />
+      <TodoHeader>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      </TodoHeader>
 
       <TodoList>
         {error && (
@@ -34,7 +40,12 @@ function AppUI() {
           </p>
         )}
         {loading && <TaskListContentLoader />}
-        {!loading && !searchedTodos.length && <NoTodosInfo />}
+        {!loading && !searchedTodos.length && !searchValue.length && (
+          <NoTodosInfo />
+        )}
+        {!loading && !searchedTodos.length && !!searchValue.length && (
+          <TodoNotFound />
+        )}
 
         {!loading &&
           !error &&
@@ -61,4 +72,3 @@ function AppUI() {
 }
 
 export { AppUI };
-

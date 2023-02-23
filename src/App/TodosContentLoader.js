@@ -1,7 +1,7 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
 
-const TaskListContentLoader = (props) => {
+const TodosContentLoader = (props) => {
   return (
     <div className="content_loader">
       <ContentLoader
@@ -22,4 +22,4 @@ const TaskListContentLoader = (props) => {
   );
 };
 
-export { TaskListContentLoader };
+export { TodosContentLoader };

@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoTodosInfo() {
+function EmptyTodos() {
   return (
     <>
       <p className="text-info">No hay tareas guardadas</p>
@@ -21,4 +21,4 @@ function TodoNotFound() {
 }
 
 
-export { NoTodosInfo, TodoNotFound };
+export { EmptyTodos, TodoNotFound };

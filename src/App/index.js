@@ -7,7 +7,7 @@ import { TodoItem } from "../components/TodoItem/index.js";
 import { TodoList } from "../components/TodoList/index.js";
 import { TodoSearch } from "../components/TodoSearch/index.js";
 import { useTodos } from "../hooks/useTodos.js";
-import { NoTodosInfo, TodoNotFound } from "./NoTodosInfo.js";
+import { EmptyTodos, TodoNotFound } from "./TodosInfo.js";
 import { TaskListContentLoader } from "./TaskListContentLoader.js";
 
 /* const defaultTodos = [
@@ -47,7 +47,7 @@ function App() {
         )}
         {loading && <TaskListContentLoader />}
         {!loading && !searchedTodos.length && !searchValue.length && (
-          <NoTodosInfo />
+          <EmptyTodos />
         )}
         {!loading && !searchedTodos.length && !!searchValue.length && (
           <TodoNotFound />
